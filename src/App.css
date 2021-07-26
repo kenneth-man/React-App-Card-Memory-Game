@@ -1,38 +1,225 @@
-.App {
-  text-align: center;
+/*boiler plate project set-up*/
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+    box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+:root {
+    --darkBlue: rgb(0, 56, 141);
+    --darkGreen: rgb(7, 78, 0);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* width */
+html::-webkit-scrollbar,
+div::-webkit-scrollbar {
+    width: 8px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Track */
+html::-webkit-scrollbar-track,
+div::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Handle */
+html::-webkit-scrollbar-thumb,
+div::-webkit-scrollbar-thumb {
+    background: rgb(180, 180, 180);
+    border-radius: 20px;
+}
+
+/* Handle on hover */
+html::-webkit-scrollbar-thumb:hover,
+div::-webkit-scrollbar-thumb:hover {
+    background: rgb(153, 153, 153);
+}
+
+/***************/
+
+h1,h2,h3,h4,h5,
+span, p, div, a,
+button, select, input,
+.playscreen__revealMsg {
+    font-family: 'Heebo';
+    font-weight: 300;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+h1 {
+    font-size: 50px;
+    letter-spacing: 10px;
+}
+
+h2 {
+    font-size: 26px;
+    text-transform: initial;
+}
+
+.screen {
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(to bottom, var(--darkBlue),rgb(200, 200, 200));
+}
+
+button,
+input,
+select {
+    outline: none;
+    border: none;
+}
+
+.link:hover,
+button:hover,
+input:hover,
+select:hover {
+    cursor: pointer;
+    filter: brightness(90%);
+}
+
+.link:active,
+button:active,
+input:active,
+select:active {
+    filter: brightness(90%);
+}
+
+.link,
+button,
+select {
+    height: max-content;
+    width: max-content;
+    padding: 10px 25px;
+    border-radius: 25px;
+    background-color: #fff;
+    color: var(--darkBlue);
+    font-size: 18px;
+    text-decoration: none;
+}
+
+select {
+    text-align-last: center;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.round {
+    border-radius: 15px;
+}
+
+.transition {
+    transition: all 0.45s;
+}
+
+.hidden {
+    display: none;
+    opacity: 0%;
+    visibility: hidden;
+    z-index: -5;
+}
+
+.reveal {
+    opacity: 100% !important;
+    visibility: visible !important;
+    z-index: 5 !important;
+}
+
+.blur {
+    filter: blur(30px);
+}
+
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 47.5%;
+}
+
+.playscreen {
+    position: relative;
+}
+
+.playScreen__grid {
+    height: 85%;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: (repeat(3, 1fr));
+    align-items: center;
+    justify-items: center;
+}
+
+.playscreen__revealMsg {
+    position: absolute;
+    top: 10%;
+    color: aqua;
+    opacity: 0%;
+    visibility: hidden;
+    z-index: -5;
+    font-size: 21px;
+    font-weight: 900;
+}
+
+.card {
+    background-color: transparent;
+    width: 200px;
+    height: 250px;
+    perspective: 1000px;
+}
+
+.card:hover {
+    cursor: pointer;
+}
+  
+.card__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.card__inner--flipped,
+.card__inner--correct {
+    transform: rotateY(180deg);
+}
+
+.card__front, .card__back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+}
+
+.card__back {
+    transform: rotateY(180deg);
+}
+
+.card__img {
+    height: 250px;
 }
