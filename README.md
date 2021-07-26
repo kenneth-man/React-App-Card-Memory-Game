@@ -10,4 +10,4 @@ The score and time remaining are shown at the end of the game.
 
 Video demo: https://drive.google.com/file/d/15Hc2XgEHao3E7_4dvRjvKJvhoVT_1sGD/view?usp=sharing
 
-![Alt text](./src/res/sample-1.png?raw=true "PlayScreen")
+![Alt text](./src/Res/sample-1.png?raw=true "PlayScreen")
